@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashScreenFragment">
+
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="uz.itschool.ecologika.presentation.SplashFragment.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        app:popUpTo="@id/nav_graph"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_placeHolderFragment"
+            app:destination="@id/placeHolderFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/placeHolderFragment"
+        android:name="uz.itschool.ecologika.presentation.PlaceHolderFragment"
+        android:label="fragment_place_holder"
+        tools:layout="@layout/fragment_place_holder" >
+    </fragment>
+</navigation>

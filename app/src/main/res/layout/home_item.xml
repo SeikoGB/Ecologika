@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/problem_card"
+    android:layout_height="230dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="10dp"
+    >
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/problem_image"
+            tools:background="@drawable/slider"
+            android:layout_width="200dp"
+            android:layout_gravity="end"
+            android:layout_height="match_parent"
+            >
+
+        </com.google.android.material.imageview.ShapeableImageView>
+        <TextView
+            android:id="@+id/problem_title"
+            android:layout_gravity="center|start"
+            android:layout_marginBottom="20dp"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            tools:text="Ecologiya xaqida 5 ta fakt"
+            android:fontFamily="@font/josefin_sans"
+            android:textSize="25dp"
+            android:textColor="@color/dark_green"
+            />
+
+    </FrameLayout>
+
+
+</androidx.cardview.widget.CardView>
