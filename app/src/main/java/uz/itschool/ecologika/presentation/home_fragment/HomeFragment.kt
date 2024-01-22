@@ -1,33 +1,29 @@
 package uz.itschool.ecologika.presentation.home_fragment
 
 import android.os.Bundle
-import android.os.CountDownTimer
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import uz.itschool.ecologika.R
 import uz.itschool.ecologika.adapters.ProblemAdapter
-import uz.itschool.ecologika.adapters.QuoteAdapter
 import uz.itschool.ecologika.databinding.FragmentHomeBinding
-import uz.itschool.ecologika.model.Organism
 import uz.itschool.ecologika.model.ProblemFull
-import uz.itschool.ecologika.model.Quote
-import uz.itschool.ecologika.presentation.AboutItem.AboutItemFragment
+import uz.itschool.ecologika.model.RubricsFull
+import uz.itschool.ecologika.presentation.Reserves.AboutItemFragment
+import uz.itschool.ecologika.presentation.Quotes.QuotesFragment
+import uz.itschool.ecologika.presentation.Rubrics.RubricsFragment
+import uz.itschool.ecologika.presentation.news.NewsFragment
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 class HomeFragment : Fragment() {
-    private lateinit var binding: FragmentHomeBinding
-    var problemss:ArrayList<ProblemFull> =ArrayList<ProblemFull>()
-    var problemsAdapter=ProblemAdapter(problemss,object :ProblemAdapter.clickable{
-        override fun click(problemFull: ProblemFull) {
-            parentFragmentManager.beginTransaction().replace(R.id.placeholder,AboutItemFragment.newInstance(problemFull)).commit()
-        }
-    })
+    private var _binding: FragmentHomeBinding? =null
+    private val binding get() =_binding!!
+    var problemss:ArrayList<RubricsFull> =ArrayList<RubricsFull>()
+
     private var param1: String? = null
     private var param2: String? = null
 
@@ -43,15 +39,31 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        binding = FragmentHomeBinding.inflate(inflater,container,false)
+        _binding = FragmentHomeBinding.inflate(inflater,container,false)
+
 
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        var problemsAdapter=ProblemAdapter(problemss,object :ProblemAdapter.clickable{
+            override fun click(problemFull: RubricsFull) {
+                parentFragmentManager.beginTransaction().replace(R.id.placeholder,AboutItemFragment.newInstance(problemFull)).setReorderingAllowed(true).addToBackStack("HomeFragment").commit()
+            }
+
+        },binding.homePager)
+
         binding.apply {
-            homePager.adapter=problemsAdapter
+            newsBtn.setOnClickListener{
+                findNavController().navigate(R.id.action_homeFragment_to_newsFragment)
+            }
+            quotes.setOnClickListener{
+                findNavController().navigate(R.id.action_homeFragment_to_quotesFragment)
+            }
+            rubricsBtn.setOnClickListener{
+                findNavController().navigate(R.id.action_homeFragment_to_rubricsFragment)
+            }
         }
     }
 

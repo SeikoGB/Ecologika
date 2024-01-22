@@ -16,6 +16,8 @@ import uz.itschool.ecologika.model.ProblemFull
 import uz.itschool.ecologika.model.ProblemMini
 import uz.itschool.ecologika.model.Quote
 import uz.itschool.ecologika.model.Request
+import uz.itschool.ecologika.model.RubricsFull
+import uz.itschool.ecologika.model.RubricsMini
 import uz.itschool.ecologika.model.data
 import uz.itschool.ecologika.network.APIClient
 import uz.itschool.ecologika.network.APIServise
@@ -24,7 +26,7 @@ import uz.itschool.ecologika.preference.Settings
 class HomeViewModel:ViewModel() {
     private val appAPI: APIServise by lazy { APIClient.getInstance(App.app).create() }
     private val settings: Settings by lazy { Settings.getSettings(App.app) }
-    val problemsLiveData=MutableLiveData<ArrayList<ProblemFull>?>()
+    val problemsLiveData=MutableLiveData<ArrayList<RubricsFull>?>()
     val quotesLiveData=MutableLiveData<ArrayList<Quote>?>()
 
     fun getQuotes(){
@@ -50,69 +52,52 @@ class HomeViewModel:ViewModel() {
     fun getProbems(limit:Int){
         var request=Request(method = "site", action = Actions.PROBLEMS.action, language = settings.getLanguage())
         var temp_limit=limit
-        var problems = ArrayList<ProblemFull>()
-        appAPI.getProblems(request).enqueue(object:Callback<ArrayList<ProblemMini>>{
+        var problems = ArrayList<RubricsFull>()
+        appAPI.getProblems(request).enqueue(object:Callback<ArrayList<RubricsMini>>{
+
             override fun onResponse(
-                call: Call<ArrayList<ProblemMini>>,
-                response: Response<ArrayList<ProblemMini>>, )
-            {
+                call: Call<ArrayList<RubricsMini>>,
+                response: Response<ArrayList<RubricsMini>>,
+            ) {
                 var body=response.body()
                 if (response.isSuccessful && body!=null){
                     if (temp_limit>=body.size)temp_limit=body.size
                     for (i in 0..limit-1){
-                        var data=data(body[i].id)
                         Log.d("TAG", "onResponse: ${body.toString()}")
+                        var data=data(body[i].id.toString())
                         var problemRequest=ByIdRequest("site",Actions.PROBLEMS_BY_ID.action,settings.getLanguage(),data)
-                        appAPI.getProblemsById(problemRequest).enqueue(object :Callback<ArrayList<ProblemFull>>{
+
+                        appAPI.getProblemsById(problemRequest).enqueue(object :Callback<ArrayList<RubricsFull>>{
                             override fun onResponse(
-                                call: Call<ArrayList<ProblemFull>>,
-                                response: Response<ArrayList<ProblemFull>>,
+                                call: Call<ArrayList<RubricsFull>>,
+                                response: Response<ArrayList<RubricsFull>>,
                             ) {
-                                var body=response.body()
-                                if (response.isSuccessful && body!=null){
-                                    Log.d("TAG", "onResponse11: ${body[0].title}")
-                                    problems.addAll(body)
+                                var temp_body=response.body()
+                                if (response.isSuccessful && temp_body!=null){
+                                    Log.d("TAG", "onResponse11: ${temp_body[0].title}")
+                                    problems.addAll(temp_body)
                                     Log.d("TAGgg", "onResponse: ${problems.toString()}")
                                     problemsLiveData.value=problems
                                 }
                             }
 
                             override fun onFailure(
-                                call: Call<ArrayList<ProblemFull>>,
+                                call: Call<ArrayList<RubricsFull>>,
                                 t: Throwable,
                             ) {
+                                TODO("Not yet implemented")
                             }
+
 
                         })
                     }
                 }
             }
 
-            override fun onFailure(call: Call<ArrayList<ProblemMini>>, t: Throwable) {
-
+            override fun onFailure(call: Call<ArrayList<RubricsMini>>, t: Throwable) {
             }
         })
 
     }
-//    fun getproblemsById(id:Int):ProblemFull{
-//        var problemFull=ProblemFull(0,"","","")
-//        var data=data(id)
-//        var problemRequest=ByIdRequest("site",Actions.PROBLEMS_BY_ID.action,settings.getLanguage(),data)
-//        appAPI.getProblemsById(problemRequest).enqueue(object :Callback<ProblemFull>{
-//            override fun onResponse(
-//                call: Call<ProblemFull>,
-//                response: Response<ProblemFull>,
-//            ) {
-//                var body=response.body()
-//                if (response.isSuccessful && body!=null){
-//                    problemFull=body
-//                }
-//            }
-//
-//            override fun onFailure(call: Call<ProblemFull>, t: Throwable) {
-//
-//            }
-//        })
-//        return problemFull
-//    }
+
 }

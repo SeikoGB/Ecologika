@@ -9,11 +9,14 @@ import retrofit2.http.POST
 import uz.itschool.ecologika.model.Auth
 import uz.itschool.ecologika.model.AuthResponse
 import uz.itschool.ecologika.model.ByIdRequest
+import uz.itschool.ecologika.model.News
 import uz.itschool.ecologika.model.Plant
 import uz.itschool.ecologika.model.ProblemFull
 import uz.itschool.ecologika.model.ProblemMini
 import uz.itschool.ecologika.model.Quote
 import uz.itschool.ecologika.model.Request
+import uz.itschool.ecologika.model.RubricsFull
+import uz.itschool.ecologika.model.RubricsMini
 
 interface APIServise {
     @POST("/api.php")
@@ -25,13 +28,32 @@ interface APIServise {
     @POST("/api.php")
     fun getRedBookAnimals(@Body request: Request):ArrayList<Plant>
 
+    @POST ("/api.php")
+    fun getNews(@Body request: Request):Call<ArrayList<News>>
+
     @POST("/api.php")
     fun getQuotes(@Body request: Request):Call<ArrayList<Quote>>
 
     @POST("/api.php")
-    fun getProblemsById(@Body byIdRequest: ByIdRequest):Call<ArrayList<ProblemFull>>
+    fun getProblemsById(@Body byIdRequest: ByIdRequest):Call<ArrayList<RubricsFull>>
+    @POST("/api.php")
+    fun getEcoHistoriesById(@Body byIdRequest: ByIdRequest):Call<ArrayList<RubricsFull>>
+    @POST("/api.php")
+    fun getInterestingsById(@Body byIdRequest: ByIdRequest):Call<ArrayList<RubricsFull>>
+    @POST("/api.php")
+    fun getDoYoKnowsById(@Body byIdRequest: ByIdRequest):Call<ArrayList<RubricsFull>>
+    @POST("/api.php")
+    fun getFolklorsById(@Body byIdRequest: ByIdRequest):Call<ArrayList<RubricsFull>>
+    @POST("/api.php")
+    fun getProblems(@Body request: Request):Call<ArrayList<RubricsMini>>
+
 
     @POST("/api.php")
-    fun getProblems(@Body request: Request):Call<ArrayList<ProblemMini>>
-
+    fun getInterestings(@Body request: Request):Call<ArrayList<RubricsMini>>
+    @POST("/api.php")
+    fun getDoYoyKnows(@Body request: Request):Call<ArrayList<RubricsMini>>
+    @POST("/api.php")
+    fun getFolklors(@Body request: Request):Call<ArrayList<RubricsMini>>
+    @POST("/api.php")
+    fun getEcoHistories(@Body request: Request):Call<ArrayList<RubricsMini>>
 }

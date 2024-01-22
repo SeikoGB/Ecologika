@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.Rubrics.RubricsFragment">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/quote_back"
+        />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/rubrics_card_shape" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_marginTop="110dp"
+            android:layout_height="wrap_content">
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rubrics_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/rubrics_item"
+         />
+        <View
+            android:layout_width="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_height="100dp"/>
+        </LinearLayout>
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/rubrics_bottom_sheet"
+        android:background="@drawable/rubrics_card_shape"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="300dp">
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+
+            app:backgroundTint="@color/blue"
+            android:background="@drawable/bottom_sheet_back"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/upword_arrow"
+            android:fontFamily="@font/montserrat"
+            app:iconTint="@color/black"
+            android:text="Yana Malumotlar"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/interestigs_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            app:cornerRadius="0dp"
+            android:fontFamily="@font/montserrat"
+            android:text="Qiziqarli Malumotlar"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/do_you_know_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/montserrat"
+            android:text="Bilasizmi?"
+            app:cornerRadius="0dp"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/eco_history_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat"
+            android:backgroundTint="@color/white"
+            android:text="Ekologik ta'limotlar tarixi"
+            app:cornerRadius="0dp"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/eco_folklor_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/montserrat"
+            android:text="Ekologik tarbiya xalq og’zaki ijodida"
+            android:textAlignment="viewStart"
+            app:cornerRadius="0dp"
+            android:textColor="@color/black"
+            />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/eco_problems_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/montserrat"
+            android:text="Ekologik tarbiya asr muammosi"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

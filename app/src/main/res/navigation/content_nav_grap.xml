@@ -9,5 +9,83 @@
         android:id="@+id/homeFragment"
         android:name="uz.itschool.ecologika.presentation.home_fragment.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_newsFragment"
+            app:destination="@id/newsFragment"
+            app:popUpToSaveState="true"
+            app:popUpTo="@id/content_nav_grap"
+            app:enterAnim="@anim/slide_in_right"
+
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_quotesFragment"
+            app:destination="@id/quotesFragment"
+            app:popUpTo="@id/content_nav_grap"
+            app:enterAnim="@anim/slide_in_right"
+            app:popUpToSaveState="true"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            />
+        <action
+            android:id="@+id/action_homeFragment_to_rubricsFragment"
+            app:destination="@id/rubricsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpToSaveState="true"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutNewsFragment"
+        android:name="uz.itschool.ecologika.presentation.AboutNews.AboutNewsFragment"
+        android:label="fragment_about_news"
+        tools:layout="@layout/fragment_about_news" />
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="uz.itschool.ecologika.presentation.news.NewsFragment"
+        android:label="fragment_news"
+        tools:layout="@layout/fragment_news" >
+        <action
+            app:popUpToSaveState="true"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            android:id="@+id/action_newsFragment_to_aboutNewsFragment"
+            app:destination="@id/aboutNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rubricsFragment"
+        android:name="uz.itschool.ecologika.presentation.Rubrics.RubricsFragment"
+        android:label="fragment_rubrics"
+        tools:layout="@layout/fragment_rubrics" >
+        <action
+            android:id="@+id/action_rubricsFragment_to_rubricsItemFragment"
+            app:destination="@id/rubricsItemFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popUpToSaveState="true"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/rubricsItemFragment"
+        android:name="uz.itschool.ecologika.presentation.ItemRubrics.RubricsItemFragment"
+        android:label="fragment_rubrics_item"
+        tools:layout="@layout/fragment_rubrics_item" >
+
+    </fragment>
+    <fragment
+        android:id="@+id/quotesFragment"
+        android:name="uz.itschool.ecologika.presentation.Quotes.QuotesFragment"
+        android:label="fragment_quotes"
+        tools:layout="@layout/fragment_quotes" />
 </navigation>

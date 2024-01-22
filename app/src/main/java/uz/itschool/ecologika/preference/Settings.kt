@@ -11,7 +11,7 @@ class Settings(context: Context) {
     fun setLanguage(int:Int){
         preferences.edit().putInt("language",int).apply()
     }
-    fun getLanguage()=preferences.getInt("language",1)
+    fun getLanguage()=preferences.getInt("language",3)
 
     fun getToken() = preferences.getString("token", null)
 

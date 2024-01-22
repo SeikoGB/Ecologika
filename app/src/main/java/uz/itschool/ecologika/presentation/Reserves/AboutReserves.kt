@@ -1,4 +1,4 @@
-package uz.itschool.ecologika.presentation.AboutItem
+package uz.itschool.ecologika.presentation.Reserves
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import uz.itschool.ecologika.databinding.FragmentAvoutItemBinding
 import uz.itschool.ecologika.model.ProblemFull
+import uz.itschool.ecologika.model.RubricsFull
 
 private const val ARG_PARAM1 = "param1"
 
@@ -14,14 +15,14 @@ private const val ARG_PARAM1 = "param1"
 
 class AboutItemFragment : Fragment() {
 
-    private var param1: ProblemFull? = null
+    private var param1: RubricsFull? = null
     private var _binding: FragmentAvoutItemBinding? =null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getSerializable(ARG_PARAM1) as ProblemFull?
+            param1 = it.getSerializable(ARG_PARAM1) as RubricsFull?
         }
     }
 
@@ -39,7 +40,7 @@ class AboutItemFragment : Fragment() {
 
     companion object {
         @JvmStatic
-        fun newInstance(problem: ProblemFull) =
+        fun newInstance(problem: RubricsFull) =
             AboutItemFragment().apply {
                 arguments = Bundle().apply {
                     putSerializable(ARG_PARAM1, problem)

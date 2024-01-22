@@ -1,14 +1,12 @@
-package uz.itschool.ecologika.presentation
+
+package uz.itschool.ecologika.presentation.media
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.GravityCompat
 import uz.itschool.ecologika.R
-import uz.itschool.ecologika.databinding.FragmentPlaceHolderBinding
-import uz.itschool.ecologika.presentation.home_fragment.HomeFragment
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,12 +15,11 @@ private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
- * Use the [PlaceHolderFragment.newInstance] factory method to
+ * Use the [MediasFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class PlaceHolderFragment : Fragment() {
-    private var _binding: FragmentPlaceHolderBinding? =null
-    private val binding get() =_binding!!
+class MediasFragment : Fragment() {
+    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
@@ -38,13 +35,8 @@ class PlaceHolderFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        _binding=FragmentPlaceHolderBinding.inflate(inflater,container,false)
-        binding.apply {
-            menu.setOnClickListener{
-                drawer.openDrawer(GravityCompat.START)
-            }
-        }
-        return binding.root
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_medias, container, false)
     }
 
     companion object {
@@ -54,12 +46,12 @@ class PlaceHolderFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment PlaceHolderFragment.
+         * @return A new instance of fragment MediasFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            PlaceHolderFragment().apply {
+            MediasFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
