@@ -1,6 +1,5 @@
 package uz.itschool.ecologika.presentation.SplashFragment
 
-import android.media.Image.Plane
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -13,8 +12,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import uz.itschool.ecologika.R
 import uz.itschool.ecologika.databinding.FragmentSplashScreenBinding
-import uz.itschool.ecologika.presentation.PlaceHolderFragment
-import uz.itschool.ecologika.presentation.home_fragment.HomeFragment
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -40,23 +37,22 @@ class SplashScreenFragment : Fragment() {
         savedInstanceState: Bundle?,
     ): View? {
         _binding=FragmentSplashScreenBinding.inflate(inflater,container,false)
-        viewModel.auth()
-        viewModel.registerliveData.observe(viewLifecycleOwner){isRegistered->
-            if (!isRegistered){
-                Toast.makeText(context,"Token was received",Toast.LENGTH_SHORT)
-                return@observe
-            }
-            Handler(Looper.getMainLooper()).postDelayed({
-                parentFragmentManager.beginTransaction().replace(R.id.main,PlaceHolderFragment()).commit()
-            }, 2000)
-        }
-
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewModel.auth()
+        viewModel.registerliveData.observe(viewLifecycleOwner){isRegistered->
+            if (isRegistered){
+                Toast.makeText(context,"Token was received",Toast.LENGTH_SHORT).show()
+                Handler(Looper.getMainLooper()).postDelayed({
+                    findNavController().navigate(R.id.action_splashScreenFragment_to_homeFragment)
+                }, 2000)
+                return@observe
+            }
 
+        }
     }
 
     companion object {

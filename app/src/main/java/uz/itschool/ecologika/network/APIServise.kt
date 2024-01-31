@@ -9,7 +9,9 @@ import retrofit2.http.POST
 import uz.itschool.ecologika.model.Auth
 import uz.itschool.ecologika.model.AuthResponse
 import uz.itschool.ecologika.model.ByIdRequest
+import uz.itschool.ecologika.model.Media
 import uz.itschool.ecologika.model.News
+import uz.itschool.ecologika.model.Photo
 import uz.itschool.ecologika.model.Plant
 import uz.itschool.ecologika.model.ProblemFull
 import uz.itschool.ecologika.model.ProblemMini
@@ -47,6 +49,11 @@ interface APIServise {
     @POST("/api.php")
     fun getProblems(@Body request: Request):Call<ArrayList<RubricsMini>>
 
+    @POST("/api.php")
+    fun getMedia(@Body request: Request):Call<ArrayList<Media>>
+
+    @POST("/api.php")
+    fun getPhotogallery(@Body request: ByIdRequest):Call<ArrayList<Photo>>
 
     @POST("/api.php")
     fun getInterestings(@Body request: Request):Call<ArrayList<RubricsMini>>

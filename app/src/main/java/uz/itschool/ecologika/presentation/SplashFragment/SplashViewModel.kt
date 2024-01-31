@@ -25,7 +25,6 @@ class SplashViewModel():ViewModel() {
             override fun onResponse(call: Call<AuthResponse>, response: Response<AuthResponse>) {
                 try {
                     val body = response.body()
-
                     if (response.isSuccessful && body!=null){
                         val token=response.body()!!.jwt
                         settings.setToken(token)

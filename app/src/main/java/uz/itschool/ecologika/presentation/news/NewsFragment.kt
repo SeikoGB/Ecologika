@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import uz.itschool.ecologika.R
 import uz.itschool.ecologika.adapters.NewsAdapter
 import uz.itschool.ecologika.databinding.FragmentNewsBinding
@@ -46,7 +47,9 @@ class NewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         var adapter= NewsAdapter(news, object : NewsAdapter.onClick{
             override fun click(news: News) {
-                parentFragmentManager.beginTransaction().replace(R.id.placeholder,AboutNewsFragment.newInstance(news)).commit()
+                var bundle = Bundle()
+                bundle.putSerializable("param1",news)
+                findNavController().navigate(R.id.action_newsFragment_to_aboutNewsFragment,bundle)
             }
         })
         viewModel.getNews()

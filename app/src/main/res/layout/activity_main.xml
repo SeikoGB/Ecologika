@@ -7,7 +7,7 @@
     android:name="androidx.navigation.fragment.NavHostFragment"
     android:id="@+id/main"
     app:defaultNavHost="true"
-    app:navGraph="@navigation/nav_graph"
+    app:navGraph="@navigation/content_nav_grap"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="1dp"
     tools:context=".MainActivity"/>

@@ -49,7 +49,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         var problemsAdapter=ProblemAdapter(problemss,object :ProblemAdapter.clickable{
             override fun click(problemFull: RubricsFull) {
-                parentFragmentManager.beginTransaction().replace(R.id.placeholder,AboutItemFragment.newInstance(problemFull)).setReorderingAllowed(true).addToBackStack("HomeFragment").commit()
+
             }
 
         },binding.homePager)
@@ -64,6 +64,10 @@ class HomeFragment : Fragment() {
             rubricsBtn.setOnClickListener{
                 findNavController().navigate(R.id.action_homeFragment_to_rubricsFragment)
             }
+            fotoBtn.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_mediasFragment)
+            }
+
         }
     }
 

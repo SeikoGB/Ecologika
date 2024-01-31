@@ -60,19 +60,23 @@ class RubricsItemFragment : Fragment() {
                 5-> viewModel.getFolklorItem(id)
             }
         var list=ArrayList<RubricsFull>()
-        viewModel.rubric.observe(viewLifecycleOwner){ it->
-            if (it != null) {
-                 item = it[0]
-                Log.d("TAggg", "onViewCreated: "+item.toString())
-            }
-        }
-        Log.d("TAggg", "onViewCreatedgg: "+item.content.toString())
+
+
         object: CountDownTimer(2000,100){
             override fun onTick(millisUntilFinished: Long) {
 
             }
 
             override fun onFinish() {
+                viewModel.rubric.observe(viewLifecycleOwner){ it->
+                    if (it != null) {
+                        if(!it.isNullOrEmpty()){
+                            item = it[0]
+                            Log.d("TAggg", "onViewCreated: "+item.toString())
+                        }
+
+                    }
+                }
                 binding.rubricsContentWebView.loadDataWithBaseURL(null, item.content , "text/html", "utf-8", null)
                 binding.rubricTitle.text=item.title
                 if (item.photo.isNullOrEmpty()){

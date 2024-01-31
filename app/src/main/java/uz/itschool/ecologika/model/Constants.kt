@@ -14,5 +14,7 @@ enum class Actions (var action:String){
     DO_YOU_KNOWS("doyouknow"),
     ECOHISTORY("ecohistory"),
     FOLKLOR("folklor"),
+    MEDIA("photogalleryes"),
+    MEDIA_GALLERY("photogallery_by_id")
 
 }

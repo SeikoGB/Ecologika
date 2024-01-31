@@ -89,7 +89,7 @@ class RubricsViewModel():ViewModel() {
             ) {
                 var body=response.body()
                 if (response.isSuccessful && body!=null){
-                    ecohistoryLiveData.value = body
+                    folklorsLiveData.value = body
                 }
             }
 
