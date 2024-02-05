@@ -31,9 +31,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/josefin_sans"
-                android:text="ECOLOGIKA"
+                android:textStyle="italic"
+                android:text="Ekologika"
                 android:layout_marginTop="10dp"
-                android:textColor="#04BA07"
+                android:textColor="@color/dark_green_40"
                 android:textSize="30dp" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 

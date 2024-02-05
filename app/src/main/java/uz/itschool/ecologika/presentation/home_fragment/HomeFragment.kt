@@ -67,6 +67,9 @@ class HomeFragment : Fragment() {
             fotoBtn.setOnClickListener {
                 findNavController().navigate(R.id.action_homeFragment_to_mediasFragment)
             }
+            redBook.setOnClickListener {
+                findNavController().navigate(R.id.action_homeFragment_to_redBookFragment)
+            }
 
         }
     }
