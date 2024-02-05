@@ -9,12 +9,7 @@ import androidx.navigation.fragment.findNavController
 import uz.itschool.ecologika.R
 import uz.itschool.ecologika.adapters.ProblemAdapter
 import uz.itschool.ecologika.databinding.FragmentHomeBinding
-import uz.itschool.ecologika.model.ProblemFull
 import uz.itschool.ecologika.model.RubricsFull
-import uz.itschool.ecologika.presentation.Reserves.AboutItemFragment
-import uz.itschool.ecologika.presentation.Quotes.QuotesFragment
-import uz.itschool.ecologika.presentation.Rubrics.RubricsFragment
-import uz.itschool.ecologika.presentation.news.NewsFragment
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"

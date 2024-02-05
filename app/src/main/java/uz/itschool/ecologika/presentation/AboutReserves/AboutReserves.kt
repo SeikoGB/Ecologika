@@ -1,4 +1,4 @@
-package uz.itschool.ecologika.presentation.Reserves
+package uz.itschool.ecologika.presentation.AboutReserves
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import uz.itschool.ecologika.databinding.FragmentAboutReservesBinding
-import uz.itschool.ecologika.model.ProblemFull
 import uz.itschool.ecologika.model.RubricsFull
 
 private const val ARG_PARAM1 = "param1"

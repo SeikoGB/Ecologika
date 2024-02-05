@@ -170,5 +170,45 @@
         android:id="@+id/redBookFragment"
         android:name="uz.itschool.ecologika.presentation.RedBook.RedBookFragment"
         android:label="fragment_red_book"
-        tools:layout="@layout/fragment_red_book" />
+        tools:layout="@layout/fragment_red_book" >
+        <action
+            app:enterAnim="@anim/slide_in_right"
+            app:popUpToSaveState="true"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            android:id="@+id/action_redBookFragment_to_plantsFragment"
+            app:destination="@id/plantsFragment" />
+        <action
+            app:enterAnim="@anim/slide_in_right"
+            app:popUpToSaveState="true"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            android:id="@+id/action_redBookFragment_to_organismsFragment"
+            app:destination="@id/organismsFragment" />
+        <action
+            app:enterAnim="@anim/slide_in_right"
+            app:popUpToSaveState="true"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            android:id="@+id/action_redBookFragment_to_reservesFragment"
+            app:destination="@id/reservesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/organismsFragment"
+        android:name="uz.itschool.ecologika.presentation.organisms.OrganismsFragment"
+        android:label="fragment_organisms"
+        tools:layout="@layout/fragment_organisms" />
+    <fragment
+        android:id="@+id/plantsFragment"
+        android:name="uz.itschool.ecologika.presentation.Plants.PlantsFragment"
+        android:label="fragment_plants"
+        tools:layout="@layout/fragment_plants" />
+    <fragment
+        android:id="@+id/reservesFragment"
+        android:name="uz.itschool.ecologika.presentation.Reserves.ReservesFragment"
+        android:label="fragment_reserves"
+        tools:layout="@layout/fragment_reserves" />
 </navigation>
