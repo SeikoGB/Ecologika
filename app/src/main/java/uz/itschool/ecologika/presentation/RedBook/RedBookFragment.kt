@@ -10,16 +10,10 @@ import uz.itschool.ecologika.R
 import uz.itschool.ecologika.databinding.FragmentQuotesBinding
 import uz.itschool.ecologika.databinding.FragmentRedBookBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RedBookFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RedBookFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
@@ -41,10 +35,14 @@ class RedBookFragment : Fragment() {
         _binding= FragmentRedBookBinding.inflate(inflater,container,false)
         binding.apply {
             organismCard.setOnClickListener {
-                findNavController().navigate(R.id.action_redBookFragment_to_organismsFragment)
+                var bundle= Bundle()
+                bundle.putInt("section_id",15)
+                findNavController().navigate(R.id.action_redBookFragment_to_categoryRedBookFragment,bundle)
             }
             plantCard.setOnClickListener {
-                findNavController().navigate(R.id.action_redBookFragment_to_plantsFragment)
+                var bundle= Bundle()
+                bundle.putInt("section_id",16)
+                findNavController().navigate(R.id.action_redBookFragment_to_categoryRedBookFragment,bundle)
             }
             reservesCard.setOnClickListener {
                 findNavController().navigate(R.id.action_redBookFragment_to_reservesFragment)

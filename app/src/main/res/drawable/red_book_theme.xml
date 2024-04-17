@@ -6,7 +6,8 @@
         <corners
             android:radius="15dp"/>
         <gradient
-            android:startColor="@color/red"
+            android:startColor="@color/red_book_theme"
+            android:centerColor="@color/red_book_theme"
             android:endColor="#FDFFFFFF"
             android:angle="90"
             />

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_nav_grap"
-    app:startDestination="@id/splashScreenFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -65,6 +65,24 @@
         <action
             android:id="@+id/action_aboutNewsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_aboutNewsFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_aboutNewsFragment_to_rubricsItemFragment"
+            app:destination="@id/rubricsItemFragment" />
+        <action
+            android:id="@+id/action_aboutNewsFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_aboutNewsFragment_to_quotesFragment"
+            app:destination="@id/quotesFragment" />
+        <action
+            android:id="@+id/action_aboutNewsFragment_to_mediaFragment"
+            app:destination="@id/mediaFragment" />
+        <action
+            android:id="@+id/action_aboutNewsFragment_to_redBookFragment"
+            app:destination="@id/redBookFragment" />
     </fragment>
     <fragment
         android:id="@+id/newsFragment"
@@ -81,6 +99,24 @@
             app:destination="@id/aboutNewsFragment" />
         <action
             android:id="@+id/action_newsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_newsFragment_to_redBookFragment"
+            app:destination="@id/redBookFragment" />
+        <action
+            android:id="@+id/action_newsFragment_to_mediaFragment"
+            app:destination="@id/mediaFragment" />
+        <action
+            android:id="@+id/action_newsFragment_to_quotesFragment"
+            app:destination="@id/quotesFragment" />
+        <action
+            android:id="@+id/action_newsFragment_to_rubricsItemFragment"
+            app:destination="@id/rubricsItemFragment" />
+        <action
+            android:id="@+id/action_newsFragment_to_quotesFragment2"
+            app:destination="@id/quotesFragment" />
+        <action
+            android:id="@+id/action_newsFragment_to_homeFragment2"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
@@ -100,6 +136,12 @@
         <action
             android:id="@+id/action_rubricsFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_rubricsFragment_to_rubricsItemFragment2"
+            app:destination="@id/rubricsItemFragment" />
+        <action
+            android:id="@+id/action_rubricsFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/rubricsItemFragment"
@@ -110,6 +152,21 @@
         <action
             android:id="@+id/action_rubricsItemFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_rubricsItemFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_rubricsItemFragment_to_quotesFragment"
+            app:destination="@id/quotesFragment" />
+        <action
+            android:id="@+id/action_rubricsItemFragment_to_mediaFragment"
+            app:destination="@id/mediaFragment" />
+        <action
+            android:id="@+id/action_rubricsItemFragment_to_redBookFragment"
+            app:destination="@id/redBookFragment" />
+        <action
+            android:id="@+id/action_rubricsItemFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/quotesFragment"
@@ -118,6 +175,21 @@
         tools:layout="@layout/fragment_quotes" >
         <action
             android:id="@+id/action_quotesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_quotesFragment_to_redBookFragment"
+            app:destination="@id/redBookFragment" />
+        <action
+            android:id="@+id/action_quotesFragment_to_mediaFragment"
+            app:destination="@id/mediaFragment" />
+        <action
+            android:id="@+id/action_quotesFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_quotesFragment_to_rubricsItemFragment"
+            app:destination="@id/rubricsItemFragment" />
+        <action
+            android:id="@+id/action_quotesFragment_to_homeFragment2"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
@@ -141,6 +213,21 @@
             app:popExitAnim="@android:anim/slide_out_right"
             android:id="@+id/action_mediasFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_mediaFragment_to_redBookFragment"
+            app:destination="@id/redBookFragment" />
+        <action
+            android:id="@+id/action_mediaFragment_to_quotesFragment"
+            app:destination="@id/quotesFragment" />
+        <action
+            android:id="@+id/action_mediaFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_mediaFragment_to_rubricsItemFragment"
+            app:destination="@id/rubricsItemFragment" />
+        <action
+            android:id="@+id/action_mediaFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutMediaFragment"
@@ -155,15 +242,26 @@
             app:popExitAnim="@android:anim/slide_out_right"
             android:id="@+id/action_aboutMediaFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/splashScreenFragment"
-        android:name="uz.itschool.ecologika.presentation.SplashFragment.SplashScreenFragment"
-        android:label="fragment_splash_screen"
-        tools:layout="@layout/fragment_splash_screen" >
         <action
-
-            android:id="@+id/action_splashScreenFragment_to_homeFragment"
+            android:id="@+id/action_aboutMediaFragment_to_homeFragment2"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_aboutMediaFragment_to_redBookFragment"
+            app:destination="@id/redBookFragment" />
+        <action
+            android:id="@+id/action_aboutMediaFragment_to_mediaFragment"
+            app:destination="@id/mediaFragment" />
+        <action
+            android:id="@+id/action_aboutMediaFragment_to_quotesFragment"
+            app:destination="@id/quotesFragment" />
+        <action
+            android:id="@+id/action_aboutMediaFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_aboutMediaFragment_to_rubricsItemFragment"
+            app:destination="@id/rubricsItemFragment" />
+        <action
+            android:id="@+id/action_aboutMediaFragment_to_homeFragment3"
             app:destination="@id/homeFragment" />
     </fragment>
     <fragment
@@ -171,30 +269,32 @@
         android:name="uz.itschool.ecologika.presentation.RedBook.RedBookFragment"
         android:label="fragment_red_book"
         tools:layout="@layout/fragment_red_book" >
+
+
         <action
-            app:enterAnim="@anim/slide_in_right"
-            app:popUpToSaveState="true"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right"
-            android:id="@+id/action_redBookFragment_to_plantsFragment"
-            app:destination="@id/plantsFragment" />
+            android:id="@+id/action_redBookFragment_to_categoryRedBookFragment"
+            app:destination="@id/categoryRedBookFragment" />
         <action
-            app:enterAnim="@anim/slide_in_right"
-            app:popUpToSaveState="true"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right"
-            android:id="@+id/action_redBookFragment_to_organismsFragment"
-            app:destination="@id/organismsFragment" />
-        <action
-            app:enterAnim="@anim/slide_in_right"
-            app:popUpToSaveState="true"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right"
             android:id="@+id/action_redBookFragment_to_reservesFragment"
             app:destination="@id/reservesFragment" />
+        <action
+            android:id="@+id/action_redBookFragment_to_mediaFragment"
+            app:destination="@id/mediaFragment" />
+        <action
+            android:id="@+id/action_redBookFragment_self"
+            app:destination="@id/redBookFragment" />
+        <action
+            android:id="@+id/action_redBookFragment_to_quotesFragment"
+            app:destination="@id/quotesFragment" />
+        <action
+            android:id="@+id/action_redBookFragment_to_newsFragment"
+            app:destination="@id/newsFragment" />
+        <action
+            android:id="@+id/action_redBookFragment_to_rubricsItemFragment"
+            app:destination="@id/rubricsItemFragment" />
+        <action
+            android:id="@+id/action_redBookFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/organismsFragment"
@@ -211,4 +311,20 @@
         android:name="uz.itschool.ecologika.presentation.Reserves.ReservesFragment"
         android:label="fragment_reserves"
         tools:layout="@layout/fragment_reserves" />
+    <fragment
+        android:id="@+id/categoryRedBookFragment"
+        android:name="uz.itschool.ecologika.presentation.category_red_book.CategoryRedBookFragment"
+        android:label="fragment_category_red_book"
+        tools:layout="@layout/fragment_category_red_book" >
+        <action
+            android:id="@+id/action_categoryRedBookFragment_to_plantsFragment"
+            app:destination="@id/plantsFragment" />
+        <action
+            android:id="@+id/action_categoryRedBookFragment_to_organismsFragment"
+            app:destination="@id/organismsFragment" />
+        <action
+            android:id="@+id/action_categoryRedBookFragment_to_redBookFragment"
+            app:destination="@id/redBookFragment" />
+
+    </fragment>
 </navigation>

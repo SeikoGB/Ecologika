@@ -13,6 +13,7 @@ import uz.itschool.ecologika.model.News
 import uz.itschool.ecologika.model.ProblemFull
 import uz.itschool.ecologika.model.Quote
 import uz.itschool.ecologika.model.Request
+import uz.itschool.ecologika.model.Screens
 import uz.itschool.ecologika.network.APIClient
 import uz.itschool.ecologika.network.APIServise
 import uz.itschool.ecologika.preference.Settings
@@ -41,5 +42,11 @@ class NewsViewModel:ViewModel(){
             }
 
         })
+    }
+    fun getLayout(){
+        settings.setLayout(Screens.HOME.screen)
+    }
+    init{
+        getLayout()
     }
 }

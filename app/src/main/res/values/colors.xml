@@ -3,7 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#1EAF13</color>
-    <color name="light_green">#C4FABE</color>
+    <color name="light_green">#CDEECB</color>
     <color name="dark_green">#066103</color>
     <color name="dark_gray">#585858</color>
     <color name="grey_3">#f7f7f7</color>
@@ -23,8 +23,21 @@
     <color name="yellow">#FFEB3B</color>
     <color name="purple">#3F51B5</color>
     <color name="pink">#FF00F6</color>
+    <color name="for_teachers_theme">#C007DA</color>
+    <color name="fotogalereya_theme">#16AFC9</color>
+    <color name="red_book_theme">#F02A2A</color>
+    <color name="news_theme">#1A81EC</color>
+    <color name="quotes_theme">#FE861B</color>
+    <color name="rubrics_theme">#58B108</color>
+    <color name="videos_theme">#4F6B77</color>
+    <color name="games_theme">#986150</color>
+
+
+
+
     <color name="half_visible_black">#80000000</color>
     <color name="orange">#FF5722</color>
     <color name="dark_green_40">#315932</color>
+    <color name="green07">#6ED67F</color>
 
 </resources>

@@ -1,10 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".presentation.organisms.OrganismsFragment">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@drawable/back"
+            />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/red_book_items_bg" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_marginTop="110dp"
+            android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/organisms_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="60dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/red_book_items"
+                />
+
+        </LinearLayout>
+    </FrameLayout>
+    <LinearLayout
+        android:id="@+id/red_book1_bottom_sheet"
+        android:background="@drawable/rubrics_card_shape"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="300dp">
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+
+            app:backgroundTint="@color/red_book_theme"
+            android:background="@drawable/red_book_bottom_sheet"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/upword_arrow"
+            android:fontFamily="@font/montserrat"
+            app:iconTint="@color/black"
+            android:text="Boshqa turlar"
+            android:textAlignment="viewStart"
+            android:textColor="@color/black"
+            />
+    </LinearLayout>
 
 
-</FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

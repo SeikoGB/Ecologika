@@ -18,6 +18,7 @@ import uz.itschool.ecologika.model.Quote
 import uz.itschool.ecologika.model.Request
 import uz.itschool.ecologika.model.RubricsFull
 import uz.itschool.ecologika.model.RubricsMini
+import uz.itschool.ecologika.model.Screens
 import uz.itschool.ecologika.model.data
 import uz.itschool.ecologika.network.APIClient
 import uz.itschool.ecologika.network.APIServise
@@ -98,6 +99,12 @@ class HomeViewModel:ViewModel() {
             }
         })
 
+    }
+    fun getLayout(){
+        settings.setLayout(Screens.HOME.screen)
+    }
+    init{
+        getLayout()
     }
 
 }

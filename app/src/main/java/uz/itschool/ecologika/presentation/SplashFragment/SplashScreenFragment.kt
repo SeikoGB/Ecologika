@@ -47,11 +47,10 @@ class SplashScreenFragment : Fragment() {
             if (isRegistered){
                 Toast.makeText(context,"Token was received",Toast.LENGTH_SHORT).show()
                 Handler(Looper.getMainLooper()).postDelayed({
-                    findNavController().navigate(R.id.action_splashScreenFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_splashScreenFragment_to_containerFragment)
                 }, 2000)
                 return@observe
             }
-
         }
     }
 

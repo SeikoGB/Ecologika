@@ -6,13 +6,14 @@
             <corners
                 android:radius="15dp"/>
             <gradient
-                android:startColor="@color/green"
+                android:startColor="@color/news_theme"
+                android:centerColor="@color/news_theme"
                 android:endColor="#FDFFFFFF"
                 android:angle="90"
                 />
             <stroke
                 android:width="2dp"
-                android:color="@color/green"/>
+                android:color="@color/news_theme"/>
 
 
         </shape>

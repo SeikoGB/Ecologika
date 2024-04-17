@@ -11,6 +11,7 @@ import uz.itschool.ecologika.App
 import uz.itschool.ecologika.model.Actions
 import uz.itschool.ecologika.model.ByIdRequest
 import uz.itschool.ecologika.model.RubricsFull
+import uz.itschool.ecologika.model.Screens
 import uz.itschool.ecologika.model.data
 import uz.itschool.ecologika.network.APIClient
 import uz.itschool.ecologika.network.APIServise
@@ -121,5 +122,11 @@ class RubricsItemViewModel: ViewModel() {
             }
 
         })
+    }
+    fun getLayout(){
+        settings.setLayout(Screens.HOME.screen)
+    }
+    init{
+        getLayout()
     }
 }

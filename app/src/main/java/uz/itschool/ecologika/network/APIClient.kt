@@ -6,11 +6,10 @@ import okhttp3.Cache
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import uz.itschool.ecologika.extencions.hasNetworkConnection
 import uz.itschool.ecologika.preference.Settings
 
 object APIClient {
-    private const val baseUrl = "http://api.ecoedu.uz"
+    private const val baseUrl = "https://api.ecoedu.uz"
     fun getInstance(context: Context): Retrofit {
         return Retrofit.Builder().baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())

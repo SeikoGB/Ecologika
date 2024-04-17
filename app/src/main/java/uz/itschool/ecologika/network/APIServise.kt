@@ -9,13 +9,16 @@ import retrofit2.http.POST
 import uz.itschool.ecologika.model.Auth
 import uz.itschool.ecologika.model.AuthResponse
 import uz.itschool.ecologika.model.ByIdRequest
+import uz.itschool.ecologika.model.CategoryRequest
 import uz.itschool.ecologika.model.Media
 import uz.itschool.ecologika.model.News
+import uz.itschool.ecologika.model.Organisms
 import uz.itschool.ecologika.model.Photo
 import uz.itschool.ecologika.model.Plant
 import uz.itschool.ecologika.model.ProblemFull
 import uz.itschool.ecologika.model.ProblemMini
 import uz.itschool.ecologika.model.Quote
+import uz.itschool.ecologika.model.RedBookRequest
 import uz.itschool.ecologika.model.Request
 import uz.itschool.ecologika.model.RubricsFull
 import uz.itschool.ecologika.model.RubricsMini
@@ -51,6 +54,8 @@ interface APIServise {
 
     @POST("/api.php")
     fun getMedia(@Body request: Request):Call<ArrayList<Media>>
+    @POST("/api.php")
+    fun getReserves(@Body request: Request):Call<ArrayList<Media>>
 
     @POST("/api.php")
     fun getPhotogallery(@Body request: ByIdRequest):Call<ArrayList<Photo>>
@@ -63,4 +68,10 @@ interface APIServise {
     fun getFolklors(@Body request: Request):Call<ArrayList<RubricsMini>>
     @POST("/api.php")
     fun getEcoHistories(@Body request: Request):Call<ArrayList<RubricsMini>>
+    @POST("/api.php")
+    fun getCategories(@Body request: CategoryRequest):Call<ArrayList<Media>>
+
+    @POST("/api.php")
+    fun getOrganisms(@Body request: RedBookRequest):Call<ArrayList<Organisms>>
+
 }

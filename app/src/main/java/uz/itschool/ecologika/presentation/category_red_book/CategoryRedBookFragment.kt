@@ -1,32 +1,36 @@
 package uz.itschool.ecologika.presentation.category_red_book
 
 import android.os.Bundle
+import android.os.CountDownTimer
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import uz.itschool.ecologika.R
+import uz.itschool.ecologika.adapters.CategoriesAdapter
+import uz.itschool.ecologika.databinding.FragmentCategoryRedBookBinding
+import uz.itschool.ecologika.model.Media
+import uz.itschool.ecologika.model.Quote
+import uz.itschool.ecologika.presentation.Quotes.QuoteViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+private const val ARG_PARAM1 = "section_id"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [CategoryRedBookFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
+
 class CategoryRedBookFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var param1: Int? = null
+
+    private var _binding: FragmentCategoryRedBookBinding? =null
+    private val binding get() =_binding!!
+    private var categories=ArrayList<Media>()
+    private val viewModel: RedBookCategoryViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+            param1 = it.getInt(ARG_PARAM1)
         }
     }
 
@@ -34,26 +38,49 @@ class CategoryRedBookFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_category_red_book, container, false)
+        _binding=FragmentCategoryRedBookBinding.inflate(inflater,container,false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewModel.getCategories(param1!!)
+        var adapter= CategoriesAdapter(categories,object :CategoriesAdapter.Click{
+            override fun click(id: Int) {
+                if (param1==15){
+                    var bundle=Bundle()
+                    bundle.putInt("id",id)
+                    findNavController().navigate(R.id.action_categoryRedBookFragment_to_organismsFragment,bundle)
+                }else{
+                    var bundle=Bundle()
+                    bundle.putInt("id",id)
+                    findNavController().navigate(R.id.action_categoryRedBookFragment_to_plantsFragment,bundle)
+                }
+            }
+        })
+        viewModel.categoriesLiveData.observe(viewLifecycleOwner){items->
+            if (items!=null){
+                categories.addAll(items)
+            }
+            binding.categoryId.adapter=adapter
+            object: CountDownTimer(500,100){
+                override fun onTick(millisUntilFinished: Long) {
+
+                }
+
+                override fun onFinish() {
+                    adapter.notifyDataSetChanged()
+                }
+            }.start()
+
+        }
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CategoryRedBookFragment.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance(param1: Int) =
             CategoryRedBookFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+                    putInt(ARG_PARAM1, param1)
                 }
             }
     }

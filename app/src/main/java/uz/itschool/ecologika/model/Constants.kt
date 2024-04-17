@@ -15,6 +15,15 @@ enum class Actions (var action:String){
     ECOHISTORY("ecohistory"),
     FOLKLOR("folklor"),
     MEDIA("photogalleryes"),
-    MEDIA_GALLERY("photogallery_by_id")
-
+    MEDIA_GALLERY("photogallery_by_id"),
+    RED_BOOK_CATEGORIES("redbook_categories"),
+    ORGANISMS("redbook_organisms")
+}
+enum class Screens(var screen:String){
+    HOME("home"),
+    MEDIA("media"),
+    QUOTES("quotes"),
+    RUBRICS("rubrics"),
+    RED_BOOK("red_book"),
+    NEWS("news")
 }

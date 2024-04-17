@@ -11,6 +11,7 @@ import uz.itschool.ecologika.model.Actions
 import uz.itschool.ecologika.model.Media
 import uz.itschool.ecologika.model.News
 import uz.itschool.ecologika.model.Request
+import uz.itschool.ecologika.model.Screens
 import uz.itschool.ecologika.network.APIClient
 import uz.itschool.ecologika.network.APIServise
 import uz.itschool.ecologika.preference.Settings
@@ -38,6 +39,12 @@ class MediaViewModel:ViewModel() {
 
             }
         })
+    }
+    fun getLayout(){
+        settings.setLayout(Screens.HOME.screen)
+    }
+    init{
+        getLayout()
     }
 
 }
